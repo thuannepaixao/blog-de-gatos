@@ -1,0 +1,354 @@
+* {
+  /* removendo as configurações padrões existentes  */
+  margin: 0;
+  padding: 0;
+  /* somar a largura máxima todos os preenchimentos  */
+  box-sizing: border-box;
+
+  /* motores de navegadores que usam webkit  */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* adicionando unidade de medida rem 10px=1rem 16px=1.6rem  */
+  font-size: 62.5%;
+  /* definindo varáveis de acesso para as cores  */
+  --color-base-100: hsl(195, 91%, 25%);
+  --color-base-200: hsl(196, 100%, 98%);
+  --color-base-300: hsl(0, 0%, 100%);
+  --color-base-400: hsl(0, 0%, 100%, 0.2);
+  --color-base-500: hsl(240, 6%, 13%);
+  --color-base-600: hsl(240, 5%, 7%);
+  --color-base-700: hsl(195, 46%, 40%);
+}
+
+html, body, input {
+  font-family: 'Mulish', sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.app {
+  display: grid;
+  /* divisão do espaçamento entre header main e footer  */
+  /* grid-template-rows: max-content 1fr max-content;  */
+  grid-template-areas: 
+  "header"
+  "main"
+  "aside"
+  "footer";
+
+  /* max-width: 43rem; */
+  /* margin-inline: auto; */
+
+}
+
+header {
+  display: grid;
+  /* grid-template-rows: max-content;  */
+
+
+  background-color: var(--color-base-100);
+}
+
+.header-top {
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+
+  justify-content: space-between;
+  padding: 1.2rem 2.8rem;
+  gap: 2.6rem;
+}
+
+
+.logo {
+  width: 4rem;
+  height: 4rem;
+  padding: .8rem;
+
+  background-color: var(--color-base-200);
+  /* arredondando a imagem  */
+  border-radius: 50%;
+}
+
+form {
+  /* espaçamento do search  */
+  flex: 1;
+}
+
+.input-wrapper label {
+  /* escondendo o label de informação  */
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+
+  background-color: var(--color-base-400);
+  border: 0;
+  border-radius: .4rem;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-base-300); 
+}
+
+.avatar {
+  width: 4.2rem;
+  height: 4.2rem;
+  /* cobrir o espaço da imagem  */
+  object-fit: cover;
+  /* arredondando a imagem  */
+  border-radius: 50%;
+}
+
+main{
+  /* caixas dentro de outra caixa  */
+  display: flex;
+  flex-direction: column;
+}
+
+.title-image img {
+  border-radius: .5rem;
+  width: 100%;
+}
+
+.title-image img:hover {
+  /* aplicando filtro na imagem ao passar o mouse  */
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+}
+
+.details, aside {
+  /* max-width: 38.2rem;  */
+  /* adiciona margem nas laterais  */
+  margin-inline: auto; 
+  padding: 3.2rem 2.6rem;
+  /* padding-left: 2.6rem; 
+  padding-right: 2.6rem;
+  padding-top: 3.2rem; */
+  
+  /* ajuste do conteúdo de texto em relação ao espaçamento  */
+  box-sizing: content-box; 
+}
+
+aside {
+  padding-bottom: 4rem;
+}
+
+h1, h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+
+  color: var(--color-base-500);
+}
+
+.title {
+  display: inline-flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+#liked, #dislike {
+  padding: 1.2rem;
+  background-color: var(--color-base-100);
+  border: 0;
+  border-radius: 50%;
+}
+
+.buttons #liked:hover {
+  /* aplicando filtro na imagem ao passar o mouse  */
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%); 
+}
+
+.buttons #dislike:hover {
+  /* aplicando filtro na imagem ao passar o mouse  */
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%); 
+}
+
+.description {
+  padding-top: 3.2rem;
+}
+
+main p {
+  font-size: 1.6rem;
+  font-weight: 400;
+
+  color: var(--color-base-600);
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.related-articles{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.2rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem; 
+}
+
+.item img {
+  width: 15.1rem;
+  border-radius: .5rem;
+
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: all 200ms ease-out;
+}
+
+.item img:hover {
+  /* aplicando filtro na imagem ao passar o mouse  */
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  /* aumentar a imagem e rotacionar  */
+  transform: scale(1) rotate(-1deg); 
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  width: 21.7rem;
+  height: 8.4rem;
+  /* width: 21.7rem; */
+  z-index: 1;
+  position: relative;
+}
+
+strong {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-base-500);
+}
+
+span {
+  /* padding-top: .4rem; */
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-base-600);
+}
+
+footer {
+  background-color: var(--color-base-700);
+}
+
+footer p {
+  text-align: center;
+  padding: 1.6rem;
+  font-weight: 600;
+  color: var(--color-base-300);
+}
+
+@media (min-width: 1120px) {
+  .app {
+    grid-template-areas: 
+    "header header header header"
+    "sidebar sidebar sidebar"
+    "footer footer footer footer";
+
+    height: 100vh;
+  }
+
+  .app header {
+    grid-area: header;
+
+  }
+
+  .app sidebar {
+    grid-area: sidebar;
+  }
+
+  .app footer {
+    grid-area: footer;
+  }
+
+  .header-top {
+    width: min(132rem, 100%);
+    display: flex;
+    padding: 1.2rem 11.2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-areas: 
+    "main main aside";
+
+    width: min(132rem, 100%);
+    padding: 1.2rem 11.2rem;
+    max-width: fit-content;
+
+  }
+
+  
+  .title-image {
+    max-width: 80rem;
+    margin-block: 3.2rem;
+  }
+
+  .details {
+    margin: 0;
+    padding: 0;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  main .title-image, .details, .description {
+    max-width: 80.3rem;
+
+  }
+};
+
+.item {
+  /* adicionando delay com espaços de tempo  */
+  --delay: .4s;
+  /* apresentação, delay, puxando informações  */
+  animation: apper .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  /* adicionando efeitos nas imagens  */
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+
+
